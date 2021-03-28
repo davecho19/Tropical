@@ -13,14 +13,14 @@ class CreatePedidosTable extends Migration
      */
     public function up()
     {
-        Schema::dropifExists('tipo');
-        Schema::create("tipo", function(Blueprint $table){
+        Schema::dropifExists('tipos');
+        Schema::create("tipos", function(Blueprint $table){
             $table->id();
             $table->string('nombre');
             $table->timestamps();
         });
-        Schema::dropifExists('cantidad');
-        Schema::create("cantidad", function(Blueprint $table){
+        Schema::dropifExists('cantidades');
+        Schema::create("cantidades", function(Blueprint $table){
             $table->id();
             $table->string('nombre');
             $table->timestamps();
@@ -33,8 +33,8 @@ class CreatePedidosTable extends Migration
             $table->string('imagen');
             $table->string('precio');
             $table->foreignId('user_id')->references('id')->on('users');
-            $table->foreignId('tipo_id')->references('id')->on('tipo');
-            $table->foreignId('cantidad_id')->references('id')->on('cantidad');
+            $table->foreignId('tipo_id')->references('id')->on('tipos');
+            $table->foreignId('cantidad_id')->references('id')->on('cantidades');
             $table->timestamps();
         });
     }
@@ -47,7 +47,7 @@ class CreatePedidosTable extends Migration
     public function down()
     {
         Schema::dropIfExists('pedidos');
-        Schema::dropIfExists('tipo');
-        Schema::dropIfExists('cantidad');
+        Schema::dropIfExists('tipos');
+        Schema::dropIfExists('cantidades');
     }
 }

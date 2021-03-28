@@ -18,7 +18,7 @@ class Pedido extends Model
 
     // OBTENEMOS LA RECETA DESDE  FK
 
-    public function autor()
+    public function autorPedido()
     {
         return $this->belongsTo(User::class, 'user_id'); // FK de esta tabla
     }

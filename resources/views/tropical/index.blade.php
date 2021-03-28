@@ -25,20 +25,12 @@
                     <td>
                     <a href="{{route('tropical.show',['pedido'=>$userPedidos->id])}}" class="btn btn-success mr-1 d-block mb-2">Ver</a>
                     <a href="{{route('tropical.edit',['pedido'=>$userPedidos->id])}}" class="btn btn-dark mr-1 d-block mb-2">Editar</a>
-
-                    <form action="{{ route('tropical.destroy', ['pedido' => $userPedidos->id]) }}" method="POST">
-                        @csrf 
-                        @method('DELETE')
-                        <input type="submit" class="btn btn-danger d-block w-100 mb-2" value="Eliminar &times;">
-                    </form>
-
+                    <eliminar-pedido>id-pedido={{$userPedido->id}}</eliminar-pedido>
                     
                     </td>
                 </tr>
              @endforeach
             </tbody>
-            
-            
-        </table>
+            </table>
     </div>
 @endsection

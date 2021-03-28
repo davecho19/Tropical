@@ -7,6 +7,7 @@ use App\Tipo;
 use App\Cantidad;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Intervention\Image\Facades\Image;
 
@@ -25,6 +26,7 @@ class PedidoController extends Controller
         $userPedidos=Auth::user()->userPedidos;
                return view('tropical.index')->with('userPedidos',$userPedidos);;
     }
+    
 
     /**
      * Show the form for creating a new resource.
@@ -33,12 +35,12 @@ class PedidoController extends Controller
      */
     public function create()
     {
-        $tipo=DB::Table('tipo')->get()->pluck('id','nombre');
-        $cantidad=DB::Table('cantidad')->get()->pluck('id','nombre');
-       // $tipo=Tipo::all(['id','nombre']);
-        //$cantidad=Cantidad::all(['id','nombre']);
-         return view('tropical.create',['cantidad'=>$cantidad, 'tipo'=>$tipo]);
-         // return view('tropical.create')->with('tipo',$tipo);
+        $tipos=Tipo::all(['id','nombre']);
+        $cantidades=Cantidad::all(['id','nombre']);
+        
+          return view('tropical.create')->with('tipos',$tipos)
+          ->with('cantidades',$cantidades);
+
     }
 
     /**
@@ -58,19 +60,7 @@ class PedidoController extends Controller
        ]);
 
        $rutaImagen=$request['imagen']->store('upload-pedido','public');
-       $imgResize=Image::make(public_path("storage/{$rutaImagen}"))->fit(500,500);
-       $imgResize->save(); 
-
-
-        //almacenamos con Modelo
-        //$data=$request;
-        /*DB::table('pedidos')->insert([
-            'nombre'=>$data['nombre'],
-            'tipo_id'=>$data['tipo'],
-            'cantidad_id'=>$data['cantidad'],
-            'imagen'=>$rutaImagen,
-            'precio'=>$data['precio'],
-        ]);*/
+       
         Auth::user()->userPedidos()->create([
             'nombre'=>$data['nombre'],
             'tipo_id'=>$data['tipo'],
@@ -78,7 +68,7 @@ class PedidoController extends Controller
             'imagen'=>$rutaImagen,
             'precio'=>$data['precio'],
             ]);
-
+           
         return redirect()->action('PedidoController@index');
     }
 
@@ -101,11 +91,12 @@ class PedidoController extends Controller
      */
     public function edit(Pedido $pedido)
     {
-        $tipo=Tipo::all(['id','nombre']);
-       // $tipo=BD::all(['id','nombre']);
-        return view('tropical.edit', compact('tipo', 'pedido'));
+        $tipos=Tipo::all(['id','nombre']);
+        $cantidades=Cantidad::all(['id','nombre']);
+     
+        return view('tropical.edit')->with('cantidades',$cantidades)
+        ->with('tipos', $tipos);
     }
-
     /**
      * Update the specified resource in storage.
      *

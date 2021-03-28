@@ -28,10 +28,12 @@
                     </div>
                     <div class="form-group">
                          <label for="tipo">Tipo Producto</label>
-                            <select name="tipo" class="form-control" id="tipo">
-                            <option value="">--Seleccione</option>
-                                @foreach($tipo as $id => $tipo)
-                                    <option value="{{$id}}" {{old('tipo')==$id ? 'selected':''}}>{{$tipo}}</option>
+                            <select name="tipo" class="form-control @error('tipo')
+                                        is-invalid
+                                    @enderror"   
+                                    id="tipo">
+                             @foreach($tipos as $tipos)
+                             <option value="{{$tipos->id}}" {{old('tipo')==$tipos->id ? 'selected':''}}>{{$tipos->nombre}}</option>
                                 @endforeach
                                 </select>
                                 @error('tipo')
@@ -41,12 +43,14 @@
                         @enderror
                     </div>
 
+
+
+
                     <div class="form-group">
                         <label for="cantidad">Cantidad</label>
                             <select name="cantidad" class="form-control" id="cantidad">
-                             <option value="">--Seleccione</option>
-                                 @foreach($cantidad as $id => $cantidad)
-                                    <option value="{{$id}}" {{old('cantidad')==$id ? 'selected':''}}>{{$cantidad}}</option>
+                             @foreach($cantidades as $cantidades)
+                             <option value="{{$cantidades->id}}" {{old('cantidad')==$cantidades->id ? 'selected':''}}>{{$cantidades->nombre}}</option>
                                 @endforeach
                                 </select>
                                 @error('cantidad')

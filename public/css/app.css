@@ -1,12 +1,12 @@
 @import url(https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap);@charset "UTF-8";
 
 body {
-  font-family: "Dancing Script", cursive;
+  font-family: "Dancing Script";
 }
 
 .bg-primary .navbar-brand {
   color: white;
-  font-family: "Dancing Script", cursive;
+  font-family: "Dancing Script";
   font-size: 40px;
 }
 
@@ -48,7 +48,7 @@ body {
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
-  --font-family-sans-serif: "Dancing Script", cursive;
+  --font-family-sans-serif: ("Dancing Script",);
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
@@ -80,13 +80,17 @@ section {
 
 body {
   margin: 0;
-  font-family: "Dancing Script", cursive;
+  font-family: "Dancing Script";
   font-size: 0.9rem;
   font-weight: 400;
   line-height: 1.6;
   color: #212529;
   text-align: left;
   background-color: #f7f4f0;
+  background-image: url('https://scontent.fuio1-1.fna.fbcdn.net/v/t1.0-9/101017320_102294388180616_5698168304565223424_o.jpg?_nc_cat=109&ccb=1-3&_nc_sid=09cbfe&_nc_eui2=AeHOxj653VGHJJl1cul4m768xzEMzg8fIyrHMQzODx8jKkT3IJbsVMpp2OyaNsruEXFpIUV6GRoK_xsmhAk_NGjf&_nc_ohc=unAOHXF_MOUAX_LiFjU&_nc_ht=scontent.fuio1-1.fna&oh=d22dec54cfb95f41be750f494e81eadb&oe=6084B689') ;
+  background-repeat: no-repeat;
+  background-position: unset;
+  background-size: cover;
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -6388,7 +6392,7 @@ a.close.disabled {
   z-index: 1070;
   display: block;
   margin: 0;
-  font-family: "Dancing Script", cursive;
+  font-family: "Dancing Script";
   font-style: normal;
   font-weight: 400;
   line-height: 1.6;
@@ -6513,7 +6517,7 @@ a.close.disabled {
   z-index: 1060;
   display: block;
   max-width: 276px;
-  font-family: "Dancing Script", cursive;
+  font-family: "Dancing Script";
   font-style: normal;
   font-weight: 400;
   line-height: 1.6;

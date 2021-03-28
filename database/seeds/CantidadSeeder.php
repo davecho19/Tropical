@@ -11,19 +11,19 @@ class CantidadSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('cantidad')->insert([
+        DB::table('cantidades')->insert([
             'nombre'=>'UNO',
             'created_at'=>date('Y-m-d H:i:s'),
             'updated_at'=>date('Y-m-d H:i:s')
         ]);
 
-        DB::table('cantidad')->insert([
+        DB::table('cantidades')->insert([
             'nombre'=>'DOS',
             'created_at'=>date('Y-m-d H:i:s'),
             'updated_at'=>date('Y-m-d H:i:s')
         ]);
 
-        DB::table('cantidad')->insert([
+        DB::table('cantidades')->insert([
             'nombre'=>'TRES',
             'created_at'=>date('Y-m-d H:i:s'),
             'updated_at'=>date('Y-m-d H:i:s')
